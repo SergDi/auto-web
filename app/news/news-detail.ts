@@ -1,5 +1,5 @@
 module App.News {
-
+    
     export class NewsDetailController {
 
         constructor() {

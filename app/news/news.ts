@@ -18,7 +18,7 @@ module App.News{
     }
 
 
-export class NewsController {
+export default class NewsController {
 
         modify:boolean;
 
@@ -26,7 +26,7 @@ export class NewsController {
 
         }
 
-        delete(){
+        del(){
             this.model.$delete();
         }
 
