@@ -2,6 +2,8 @@ import 'angular';
 import 'angular-ui-router';
 import 'angular-resource';
 
+import routing from './app.config';
+
 function App () {
   return {
     restrict: 'E',
@@ -22,6 +24,7 @@ class AppController {
 }
 
 angular.module('app', ['ui.router'])
+    .config(routing)
     .directive('app', App);
 
 angular.bootstrap(document, ['app']);
