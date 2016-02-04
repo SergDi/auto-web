@@ -1,12 +1,15 @@
+var __dirname = 'app';
+
 module.exports = {
 
+
   // set the context (optional)
-  context: __dirname + '/src',
+  context: __dirname,
   entry: 'app.ts',
 
   // enable loading modules relatively (without the ../../ prefix)
   resolve: {
-    root: [__dirname + "/src"],
+    root: [__dirname],
     extensions: ['','.webpack.js','.ts', '.js']
   },
 
