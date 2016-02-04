@@ -6,8 +6,5 @@
   },
   "exclude": [
     "node_modules"
-  ],
-  "files":[
-    "typings/angularjs/angular.d.ts"
   ]
 }

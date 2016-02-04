@@ -1,18 +1,11 @@
-var __dirname = 'app';
-
 module.exports = {
 
-
-  // set the context (optional)
-  context: __dirname,
-  entry: 'app.ts',
-
-  // enable loading modules relatively (without the ../../ prefix)
-  resolve: {
-    root: [__dirname],
-    extensions: ['','.webpack.js','.ts', '.js']
+  context: __dirname +'/app',
+  entry: './app.ts',
+  output: {
+    path: __dirname + '/app',
+    filename: 'bundle.js'
   },
-
   module: {
     loaders: [
       // all files with a `.ts` extension will be handled by `ts-loader`
@@ -23,13 +16,5 @@ module.exports = {
       }
     ]
   },
-
-
-  // webpack dev server configuration
-  devServer: {
-    contentBase: "./src"
-  },
-
-  // support source maps
-  devtool: "#inline-source-map"
+  devtool: '#inline-source-map'
 };

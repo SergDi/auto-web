@@ -20,6 +20,6 @@ class AppController {
 }
 
 angular.module('app', [])
-.directive('app', App);
+    .directive('app', App);
 
 angular.bootstrap(document, ['app']);

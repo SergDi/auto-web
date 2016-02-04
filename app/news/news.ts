@@ -1,4 +1,6 @@
-    export interface INews  {
+
+module App.News{
+    export interface INews {
 
         title:string;
         description?:string;
@@ -11,11 +13,12 @@
         approve:boolean;
     }
 
-    export interface INewsResource extends  ng.resource.IResource<INews> {
+    export interface INewsResource extends angular.resource.IResource<INews> {
 
     }
 
-    export class NewsController {
+
+export class NewsController {
 
         modify:boolean;
 
@@ -40,3 +43,4 @@
         .module('news', [])
         .controller('news', NewsController)
 
+}

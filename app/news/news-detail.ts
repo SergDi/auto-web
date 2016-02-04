@@ -1,10 +1,12 @@
+module App.News {
 
     export class NewsDetailController {
 
-        constructor(){
+        constructor() {
 
         }
     }
 
     angular.module('news')
-        .controller('newsdetail', NewsDetailController)
+        .controller('newsdetail', NewsDetailController);
+}
