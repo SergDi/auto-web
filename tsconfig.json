@@ -1,0 +1,12 @@
+{
+    "version": "1.7.5",
+    "compilerOptions": {
+    "sourceMap": true,
+        "target": "es5",
+        "experimentalDecorators": true,
+        "module": "commonjs"
+},
+    "exclude": [
+    "node_modules"
+]
+}

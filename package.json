@@ -1,0 +1,10 @@
+{
+  "name": "auto-web",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-resource": "^1.4.9",
+    "angular-ui-bootstrap": "^1.1.2",
+    "angular-ui-router": "^0.2.17"
+  }
+}
