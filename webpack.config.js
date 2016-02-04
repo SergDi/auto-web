@@ -2,7 +2,7 @@ module.exports = {
 
   // set the context (optional)
   context: __dirname + '/src',
-  entry: 'index.ts',
+  entry: 'app.ts',
 
   // enable loading modules relatively (without the ../../ prefix)
   resolve: {
