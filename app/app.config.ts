@@ -1,6 +1,6 @@
 routing.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-export default function routing($urlRouterProvider: ng.ui.IUrlRouterProvider, $locationProvider:ng.ILocationProvider) {
-    $locationProvider.html5Mode({enabled:true, requireBase:false});
+export default function routing($urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
 }
