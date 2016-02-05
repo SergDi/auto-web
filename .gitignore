@@ -1,3 +1,5 @@
-typings
+typings/angularjs
+typings/angular-ui-router
+typings/jquery
 node_modules
 app/bundle.js
