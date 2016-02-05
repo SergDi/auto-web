@@ -6,7 +6,7 @@ export class NewsController {
 
         modify:boolean;
 
-        static $ingect =['newsService'];
+        static $inject =['newsService'];
 
         //constructor(private model:app.INewsResource){
         constructor(private newsService:NewsService){

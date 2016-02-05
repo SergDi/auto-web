@@ -1,7 +1,7 @@
 
     export default class NewsService{
 
-        static $ingect =['$resource'];
+        static $inject =['$resource'];
 
         constructor(private $resource:angular.resource.IResourceService){
 
