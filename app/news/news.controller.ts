@@ -1,21 +1,7 @@
 
 import NewsService from './news.service';
-
 import NewsDetailController from './news-detail/news-detail';
-
-
-routing.$inject = ['$stateProvider'];
-
-export function routing($stateProvider) {
-        $stateProvider
-            .state('news', {
-                    url: '/',
-                    template: require('./news.html'),
-                    controller: 'newsController',
-                    controllerAs: 'vm'
-
-            });
-}
+import routing from './news.routes';
 
 export class NewsController {
 
