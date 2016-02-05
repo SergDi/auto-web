@@ -4,27 +4,9 @@ import 'angular-resource';
 
 import routing from './app.config';
 
-function App () {
-  return {
-    restrict: 'E',
-    template: '<h1>{{ vm.name }}</h1>',
-    controller: AppController,
-    controllerAs: 'vm'
-  }
-}
+import news from './news/news.controller';
 
-class AppController {
-
-  name: string;
-
-  constructor() {
-    this.name = "auto-web";
-  }
-
-}
-
-angular.module('app', ['ui.router'])
-    .config(routing)
-    .directive('app', App);
+angular.module('app', ['ui.router', news])
+    .config(routing);
 
 angular.bootstrap(document, ['app']);
