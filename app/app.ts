@@ -4,7 +4,7 @@ import 'angular-resource';
 
 import routing from './app.config';
 
-import news from './news/news.controller';
+import news from './news/news';
 
 angular.module('app', ['ui.router', news])
     .config(routing);
