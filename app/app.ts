@@ -2,33 +2,35 @@ import 'angular';
 import 'angular-ui-router';
 import 'angular-resource';
 
-import routing from './app.config';
-
-<<<<<<< HEAD
 import news from './news/news';
-=======
-function App () {
-  return {
-    restrict: 'E',
-    template: '<h1>{{ vm.name }}</h1>',
-    controller: AppController,
-    controllerAs: 'vm'
-  }
+
+routing.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
+function routing($urlRouterProvider, $locationProvider, $stateProvider) {
+
+  $locationProvider.html5Mode({
+    enabled:true,
+    requireBase:false
+  });
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+      .state('news', {
+          url: '/',
+          template: require('./news/news.html'),
+          controller: 'newsController',
+          controllerAs: 'vm'
+
+      })
+      .state('news-detail', {
+        url: '/news/:id',
+        template: require('./news/news-detail/news-detail.html'),
+        controller: 'newsDetailController',
+        controllerAs: 'vm'
+      });
 }
->>>>>>> parent of 44fcba4... reorder
 
-class AppController {
-
-  name: string;
-
-  constructor() {
-    this.name = "auto-web";
-  }
-
-}
-
-angular.module('app', ['ui.router'])
-    .config(routing)
-    .directive('app', App);
+angular.module('app',
+    ['ui.router', 'ngResource', news])
+    .config(routing);
 
 angular.bootstrap(document, ['app']);

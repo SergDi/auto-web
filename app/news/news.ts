@@ -1,7 +1,6 @@
 
 import NewsService from './news.service';
 import NewsDetailController from './news-detail/news-detail';
-import routing from './news.routes';
 
 export class NewsController {
 
@@ -27,8 +26,7 @@ export class NewsController {
         }
 }
 
-export default angular.module('app.news', ['ui.router','ngResource'])
-    .config(routing)
+export default angular.module('news', [])
     .controller('newsController', NewsController)
     .controller('newsDetailController', NewsDetailController)
     .service('newsService', NewsService)

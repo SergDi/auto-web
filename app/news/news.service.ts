@@ -11,6 +11,3 @@
             return this.$resource("/api/news/:id");
         }
     }
-
-    angular.module('news')
-        .service('newsService',NewsService);

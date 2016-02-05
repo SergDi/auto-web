@@ -8,6 +8,7 @@
     "angular-ui-router": "^0.2.17"
   },
   "devDependencies": {
+    "raw-loader": "^0.5.1",
     "ts-loader": "^0.8.0",
     "tsd": "0.6.5",
     "typescript": "1.7.5",
