@@ -1,6 +1,4 @@
-module App.News {
-    
-    export class NewsDetailController {
+ export default class NewsDetailController {
 
         constructor() {
 
@@ -9,4 +7,3 @@ module App.News {
 
     angular.module('news')
         .controller('newsdetail', NewsDetailController);
-}

@@ -1,6 +1,5 @@
-module App.News{
 
-    export class NewsService{
+    export default class NewsService{
 
         static $ingect =['$resource'];
 
@@ -8,12 +7,10 @@ module App.News{
 
         }
 
-        get():angular.resource.IResourceClass<INewsResource>{
+        get():angular.resource.IResourceClass<app.INewsResource>{
             return this.$resource("/api/news/:id");
         }
     }
 
     angular.module('news')
         .service('newsService',NewsService);
-
-}

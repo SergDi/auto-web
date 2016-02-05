@@ -1,28 +1,10 @@
-
-module App.News{
-    export interface INews {
-
-        title:string;
-        description?:string;
-        body:string;
-        createDate:any;
-        location:any;
-        tags:any[];
-        opportunityСomment:boolean;
-        hot:boolean;
-        approve:boolean;
-    }
-
-    export interface INewsResource extends angular.resource.IResource<INews> {
-
-    }
-
+/// <reference path="../lib.d.ts" />
 
 export default class NewsController {
 
         modify:boolean;
 
-        constructor(private model:INewsResource){
+        constructor(private model:app.INewsResource){
 
         }
 
@@ -42,5 +24,3 @@ export default class NewsController {
     angular
         .module('news', [])
         .controller('news', NewsController)
-
-}
