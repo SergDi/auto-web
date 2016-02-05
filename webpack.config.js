@@ -8,7 +8,6 @@ module.exports = {
   },
   module: {
     loaders: [
-      // all files with a `.ts` extension will be handled by `ts-loader`
       {
         test: /\.ts$/,
         exclude: [/node_modules/],
@@ -20,5 +19,10 @@ module.exports = {
       }
     ]
   },
+  
+  devServer: {
+    contentBase: "./app"
+  },
+  
   devtool: '#inline-source-map'
 };
