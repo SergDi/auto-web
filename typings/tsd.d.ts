@@ -4,3 +4,4 @@
 /// <reference path="jquery/jquery.d.ts" />
 
 /// <reference path="app.d.ts" />
+/// <reference path="angularjs/angular-mocks.d.ts" />

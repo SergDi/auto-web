@@ -23,7 +23,8 @@ module.exports = {
   },
   
   devServer: {
-    contentBase: "./app"
+    contentBase: "./app",
+    historyApiFallback: true
   },
   
   devtool: '#inline-source-map'

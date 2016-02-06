@@ -1,13 +1,10 @@
+export default function NewsService( $resource:angular.resource.IResourceService){
 
-    export default class NewsService{
-
-        static $inject =['$resource'];
-
-        constructor(private $resource:angular.resource.IResourceService){
-
-        }
-
-        get():angular.resource.IResourceClass<app.INewsResource>{
-            return this.$resource("/api/news/:id");
-        }
+        return $resource('/api/news/:id', { id: '@_id' }, {
+                query:  { method: "GET", isArray: true },
+                create: { method: "POST" },
+                get:    { method: "GET" },
+                remove: { method: "DELETE" },
+                update: { method: "PUT" }
+        });
     }

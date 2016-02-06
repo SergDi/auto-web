@@ -1,36 +1,44 @@
 import 'angular';
 import 'angular-ui-router';
 import 'angular-resource';
-
+import './common/services/newsResourceMock';
 import news from './news/news';
 
-routing.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
-function routing($urlRouterProvider, $locationProvider, $stateProvider) {
+routing.$inject = ['$urlRouterProvider', '$locationProvider'];
+function routing($urlRouterProvider, $locationProvider) {
 
   $locationProvider.html5Mode({
-    enabled:true,
+    enabled:false,
     requireBase:false
   });
   $urlRouterProvider.otherwise('/');
 
-  $stateProvider
-      .state('news', {
-          url: '/',
-          template: require('./news/news.html'),
-          controller: 'newsController',
-          controllerAs: 'vm'
-
-      })
-      .state('news-detail', {
-        url: '/news/:id',
-        template: require('./news/news-detail/news-detail.html'),
-        controller: 'newsDetailController',
-        controllerAs: 'vm'
-      });
 }
 
+function App () {
+    return {
+        restrict: 'E',
+        template: `
+        <ul>
+          <li><a ui-sref="news">news</a></li>
+          <li><a ui-sref="news-detail({id:1})">news-detail</a></li>
+        </ul>
+        <ui-view></ui-view>
+        `,
+        controller: AppController,
+        controllerAs: 'App'
+    }
+}
+
+class AppController {
+
+    constructor() {
+
+    }
+}
 angular.module('app',
-    ['ui.router', 'ngResource', news])
-    .config(routing);
+    ['ui.router', 'ngResource','newsResourceMock', news])
+    .config(routing)
+    .directive('app', App);
 
 angular.bootstrap(document, ['app']);

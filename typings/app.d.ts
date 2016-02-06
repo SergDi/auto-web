@@ -3,7 +3,7 @@ declare function require(string): any;
 declare module app {
 
     interface INews {
-
+        id:number;
         title:string;
         description?:string;
         body:string;
@@ -16,6 +16,10 @@ declare module app {
     }
 
     interface INewsResource extends angular.resource.IResource<INews> {
-
+        query();
+        create();
+        get(any);
+        remove();
+        update();
     }
 }

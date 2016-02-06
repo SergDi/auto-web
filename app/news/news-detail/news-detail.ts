@@ -1,6 +1,7 @@
  export default class NewsDetailController {
 
-        constructor() {
+     static $inject =['model'];
+        constructor(private model) {
 
         }
     }
