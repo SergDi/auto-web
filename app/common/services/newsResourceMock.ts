@@ -13,10 +13,10 @@ import 'angular-mocks/ngMockE2E';
 
         item = {
             id:1,
-            title:'title',
-            description:'description',
-            body:'body',
-            createDate:'010101',
+            title:'Post Title',
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
+            body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
+            createDate:'01.01.2016',
             location:'010101',
             tags:[],
             opportunityСomment:true,
@@ -27,10 +27,10 @@ import 'angular-mocks/ngMockE2E';
 
         item = {
             id:2,
-            title:'title',
-            description:'description',
-            body:'body',
-            createDate:'010101',
+            title:'Post Title',
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
+            body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
+            createDate:'01.01.2016',
             location:'010101',
             tags:[],
             opportunityСomment:true,
