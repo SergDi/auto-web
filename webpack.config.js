@@ -8,13 +8,10 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.ts$/,
-        exclude: [/node_modules/],
-        loader: 'ts-loader'
-      },
-      { test: /\.html$/,
-        loader: 'raw' }
+      {test: /\.ts$/, exclude: [/node_modules/], loader: 'ts-loader'},
+      { test: /\.html$/, loader: 'raw'},
+      { test: /\.css$/, loader: "style!css"},
+      { test: /\.(woff|woff2|ttf|svg|eot)$/, loader: 'url'}
     ]
   },
 

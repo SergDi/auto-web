@@ -6,13 +6,18 @@
     "angular-mocks": "^1.5.0",
     "angular-resource": "^1.4.9",
     "angular-ui-bootstrap": "^1.1.2",
-    "angular-ui-router": "^0.2.17"
+    "angular-ui-router": "^0.2.17",
+    "bootstrap": "^3.3.6"
   },
   "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
     "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.0",
     "ts-loader": "^0.8.0",
     "tsd": "0.6.5",
     "typescript": "1.7.5",
+    "url-loader": "^0.5.7",
     "webpack": "1.12.13",
     "webpack-dev-server": "1.12.0"
   }

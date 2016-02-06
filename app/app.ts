@@ -1,7 +1,10 @@
 import 'angular';
 import 'angular-ui-router';
 import 'angular-resource';
+import 'bootstrap/dist/css/bootstrap.css'
+
 import './common/services/newsResourceMock';
+
 import news from './news/news';
 
 routing.$inject = ['$urlRouterProvider', '$locationProvider'];
