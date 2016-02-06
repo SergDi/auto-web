@@ -1,1 +1,9 @@
-{{vm.model}}
+<div class="container">
+    <div class="row">
+        <h1 ng-bind="vm.model.title"></h1>
+        <h6 ng-bind="vm.model.description"></h6>
+        <p><span class="glyphicon glyphicon-time"></span>{{vm.model.createDate}}</p>
+        <hr>
+        <p class="lead" ng-bind="vm.model.body"></p>
+    </div>
+</div>
