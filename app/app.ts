@@ -10,24 +10,19 @@ import news from './news/news';
 routing.$inject = ['$urlRouterProvider', '$locationProvider'];
 function routing($urlRouterProvider, $locationProvider) {
 
-  $locationProvider.html5Mode({
-    enabled:false,
-    requireBase:false
-  });
-  $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode({
+        enabled: false,
+        requireBase: false
+    });
+    $urlRouterProvider.when("", "/news");
+    $urlRouterProvider.when("/", "/news");
 
 }
 
-function App () {
+function App() {
     return {
         restrict: 'E',
-        template: `
-        <ul>
-          <li><a ui-sref="news">news</a></li>
-          <li><a ui-sref="news-detail({id:1})">news-detail</a></li>
-        </ul>
-        <ui-view></ui-view>
-        `,
+        template: '<ui-view/>',
         controller: AppController,
         controllerAs: 'App'
     }
@@ -40,7 +35,7 @@ class AppController {
     }
 }
 angular.module('app',
-    ['ui.router', 'ngResource','newsResourceMock', news])
+    ['ui.router', 'ngResource', 'newsResourceMock', news])
     .config(routing)
     .directive('app', App);
 
