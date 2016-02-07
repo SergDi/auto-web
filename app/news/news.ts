@@ -1,5 +1,6 @@
 import NewsService from './news.service';
 import NewsDetailController from './news-detail/news-detail';
+import NewsEditController from './news-edit/news-edit';
 
 routing.$inject = ['$stateProvider'];
 function routing($stateProvider) {
@@ -36,8 +37,8 @@ function routing($stateProvider) {
         })
         .state('news.edit', {
             url: '/:id/edit',
-            template: require('./news-detail/news-detail.html'),
-            controller: 'newsDetailController',
+            template: require('./news-edit/news-edit.html'),
+            controller: 'newsEditController',
             controllerAs: 'vm',
             resolve: {
                 model: ['$stateParams', 'newsService',
@@ -61,5 +62,6 @@ export default angular.module('news', ['ui.router'])
     .config(routing)
     .controller('newsController', NewsController)
     .controller('newsDetailController', NewsDetailController)
+    .controller('newsEditController', NewsEditController)
     .factory('newsService', ["$resource", NewsService])
     .name;
