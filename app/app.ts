@@ -3,6 +3,8 @@ import 'angular-ui-router';
 import 'angular-resource';
 import 'bootstrap/dist/css/bootstrap.css'
 
+import './common/services/filters';
+
 import './common/services/newsResourceMock';
 
 import news from './news/news';
@@ -22,7 +24,14 @@ function routing($urlRouterProvider, $locationProvider) {
 function App() {
     return {
         restrict: 'E',
-        template: '<ui-view/>',
+        template: `
+        <div class="container">
+            <div class="page-header">
+                <h3 class="text-muted"><a href="/">Logo auto web</a></h3>
+            </div>
+            <ui-view/>
+        </div>
+        `,
         controller: AppController,
         controllerAs: 'App'
     }
@@ -35,7 +44,7 @@ class AppController {
     }
 }
 angular.module('app',
-    ['ui.router', 'ngResource', 'newsResourceMock', news])
+    ['ui.router', 'ngResource', 'common.filters','newsResourceMock', news])
     .config(routing)
     .directive('app', App);
 

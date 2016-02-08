@@ -55,7 +55,10 @@ import 'angular-mocks/ngMockE2E';
 
         var newsUrl = "/api/news";
 
-        $httpBackend.whenGET(newsUrl).respond(items);
+        $httpBackend.whenGET(newsUrl).respond(function(method, url, data) {
+
+            return [200, items, {}];
+        });
 
         var editingRegex = new RegExp(newsUrl + "/[0-9][0-9]*", '');
         $httpBackend.whenGET(editingRegex).respond(function(method, url, data) {
@@ -75,9 +78,21 @@ import 'angular-mocks/ngMockE2E';
             return [200, item, {}];
         });
 
-        // Catch all for testing purposes
-        $httpBackend.whenGET(/api/).respond(function(method, url, data) {
-            return [200, items, {}];
+        $httpBackend.whenPOST(newsUrl).respond(function(method, url, data:string, headers){
+
+            var item = angular.fromJson(data);
+            items.push(item);
+
+            return [200, {}, {}];
+        });
+
+        $httpBackend.whenPUT(newsUrl).respond(function(method, url, data:string, headers){
+
+            var item = angular.fromJson(data);
+            items = items.filter(f => {return f.id != item.id});
+            items.push(item);
+
+            return [200, {}, {}];
         });
 
         // Pass through any requests for application files
