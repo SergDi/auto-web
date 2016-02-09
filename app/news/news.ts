@@ -12,7 +12,7 @@ function routing($stateProvider) {
             template: '<ui-view/>'
         })
         .state('news.list', {
-            url: '',
+            url: '?tag',
             template: require('./news.html'),
             controller: 'newsController',
             controllerAs: 'vm',

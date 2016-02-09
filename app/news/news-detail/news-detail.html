@@ -2,7 +2,13 @@
     <h1 ng-bind="vm.model.title"></h1>
     <h6 ng-bind="vm.model.description"></h6>
     <p><span class="glyphicon glyphicon-time"></span>{{vm.model.createDate}}</p>
-    <hr>
     <p class="lead" ng-bind="vm.model.body"></p>
+    <div>
+        <small ng-repeat="tag in vm.model.tags">
+        <small ng-if="$index > 0">,</small>
+            <a ui-sref="news.list({ tag: tag })">{{tag}}</a>
+        </small>
+    </div>
+    <hr>
     <a class="btn btn-primary" ui-sref="news.edit({ id: vm.model.id })">Edit</a>
 </div>
