@@ -6,7 +6,7 @@
     <div>
         <small ng-repeat="tag in vm.model.tags">
         <small ng-if="$index > 0">,</small>
-            <a ui-sref="news.list({ tag: tag })">{{tag}}</a>
+            <a ui-sref="news.list({ tags: tag  })">{{tag}}</a>
         </small>
     </div>
     <hr>

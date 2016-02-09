@@ -12,14 +12,14 @@ function routing($stateProvider) {
             template: '<ui-view/>'
         })
         .state('news.list', {
-            url: '?tag',
+            url: '?tags',
             template: require('./news.html'),
             controller: 'newsController',
             controllerAs: 'vm',
             resolve: {
                 model: ['$stateParams', 'newsService',
                     function ($stateParams, newsService:app.INewsResource) {
-                        return newsService.query();
+                        return newsService.query($stateParams);
                     }]
             }
         })

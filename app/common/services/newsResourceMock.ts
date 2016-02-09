@@ -55,7 +55,24 @@ import 'angular-mocks/ngMockE2E';
 
         var newsUrl = "/api/news";
 
-        $httpBackend.whenGET(newsUrl).respond(function(method, url, data) {
+        var pattern = new RegExp(
+            "^" +
+            newsUrl.replace(/[-[\]{}()*+?.\\^$|]/g, "\\$&") + /* escape special chars */
+            "(?:\\?.*)?$");
+
+        $httpBackend.whenGET(pattern).respond(function(method, url, data, headers, params) {
+
+            if(params)
+                for(var i in params){
+
+                    items = items.filter(f =>
+                    {
+                        if(angular.isArray(f[i]))
+                            return f[i].some(c => {return c ==  params[i]})
+                        else
+                            f[i] == params[i];
+                    });
+                }
 
             return [200, items, {}];
         });
