@@ -1,4 +1,6 @@
-import NewsService from './news.service';
+import NewsService from './news.service/news.service';
+import './news.service/newsResourceMock';
+
 import NewsDetailController from './news-detail/news-detail';
 import NewsEditController from './news-edit/news-edit';
 
@@ -51,14 +53,14 @@ function routing($stateProvider) {
 
 export class NewsController {
 
-    static $inject = ['model', 'newsService'];
+    static $inject = ['model', 'newsService',];
 
     constructor(private model:app.INews[], private newsService:app.INewsResource) {
 
     }
 }
 
-export default angular.module('news', ['ui.router'])
+export default angular.module('news', ['ui.router','newsResourceMock'])
     .config(routing)
     .controller('newsController', NewsController)
     .controller('newsDetailController', NewsDetailController)

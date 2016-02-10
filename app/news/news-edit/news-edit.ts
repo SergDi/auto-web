@@ -7,10 +7,12 @@ export default class NewsEditController {
     }
 
     public cancel() {
+
         this.$state.go('news.list');
     }
 
     public save() {
+
         var promise = this.model.id ? this.model.$update() : this.model.$save();
 
         promise.then((response) => {

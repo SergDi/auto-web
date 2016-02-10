@@ -5,8 +5,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import './common/services/filters';
 
-import './common/services/newsResourceMock';
-
 import news from './news/news';
 
 routing.$inject = ['$urlRouterProvider', '$locationProvider'];
@@ -44,7 +42,7 @@ class AppController {
     }
 }
 angular.module('app',
-    ['ui.router', 'ngResource', 'common.filters','newsResourceMock', news])
+    ['ui.router', 'ngResource', 'common.filters', news])
     .config(routing)
     .directive('app', App);
 
