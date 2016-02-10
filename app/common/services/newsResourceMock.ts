@@ -11,47 +11,7 @@ import 'angular-mocks/ngMockE2E';
         var items: app.INews[] = [];
         var item: app.INews;
 
-        item = {
-            id:1,
-            title:'Post Title',
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
-            body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
-            createDate:'01.01.2016',
-            location:'010101',
-            tags:['tag1','tag2','tag3'],
-            opportunityСomment:true,
-            hot:true,
-            approve:false,
-        };
-        items.push(item);
-
-        item = {
-            id:2,
-            title:'Post Title',
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
-            body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
-            createDate:'01.01.2016',
-            location:'010101',
-            tags:['tag4','tag2','tag3'],
-            opportunityСomment:true,
-            hot:true,
-            approve:false,
-        };
-        items.push(item);
-
-        item = {
-            id:3,
-            title:'title',
-            description:'description',
-            body:'body',
-            createDate:'010101',
-            location:'010101',
-            tags:['tag2','tag3','tag4'],
-            opportunityСomment:true,
-            hot:true,
-            approve:false,
-        };
-        items.push(item);
+        var items = getItems();
 
         var newsUrl = "/api/news";
 
@@ -64,7 +24,7 @@ import 'angular-mocks/ngMockE2E';
 
             if(params)
                 for(var i in params){
-
+                    items = getItems();
                     items = items.filter(f =>
                     {
                         if(angular.isArray(f[i]))
@@ -79,6 +39,7 @@ import 'angular-mocks/ngMockE2E';
 
         var editingRegex = new RegExp(newsUrl + "/[0-9][0-9]*", '');
         $httpBackend.whenGET(editingRegex).respond(function(method, url, data) {
+
             var item = { "id": 0 };
             var parameters = url.split('/');
             var length = parameters.length;
@@ -115,4 +76,43 @@ import 'angular-mocks/ngMockE2E';
         // Pass through any requests for application files
         $httpBackend.whenGET(/app/).passThrough();
     }
+
+function getItems(): app.INews[]{
+
+    return[ {
+        id:1,
+        title:'Post Title',
+        description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
+        body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
+        createDate:'01.01.2016',
+        location:'010101',
+        tags:['tag1','tag2','tag3'],
+        opportunityСomment:true,
+        hot:true,
+        approve:false,
+    },{
+        id:2,
+        title:'Post Title',
+        description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
+        body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
+        createDate:'01.01.2016',
+        location:'010101',
+        tags:['tag4','tag2','tag3'],
+        opportunityСomment:true,
+        hot:true,
+        approve:false,
+    },{
+        id:3,
+        title:'title',
+        description:'description',
+        body:'body',
+        createDate:'010101',
+        location:'010101',
+        tags:['tag2','tag3','tag4'],
+        opportunityСomment:true,
+        hot:true,
+        approve:false,
+    }];
+
+}
 
