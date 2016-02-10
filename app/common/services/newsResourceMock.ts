@@ -73,6 +73,17 @@ import 'angular-mocks/ngMockE2E';
             return [200, {}, {}];
         });
 
+        $httpBackend.whenDELETE(editingRegex).respond(function(method, url, data:string, headers, params){
+
+            var parameters = url.split('/');
+            var length = parameters.length;
+            var id = parseInt(parameters[length - 1]);
+
+            items = items.filter(f => {return f.id != id});
+
+            return [200, {}, {}];
+        });
+
         // Pass through any requests for application files
         $httpBackend.whenGET(/app/).passThrough();
     }

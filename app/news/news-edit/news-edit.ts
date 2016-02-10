@@ -1,8 +1,8 @@
 export default class NewsEditController {
 
-    static $inject = ['model', '$state'];
+    static $inject = ['newsService', 'model', '$state'];
 
-    constructor(private model, private $state) {
+    constructor(private newsService:app.INewsResource, private model, private $state) {
 
     }
 
@@ -11,13 +11,23 @@ export default class NewsEditController {
     }
 
     public save() {
-        var promise =  this.model.id ? this.model.$update() : this.model.$save();
+        var promise = this.model.id ? this.model.$update() : this.model.$save();
 
         promise.then((response) => {
-            this.$state.go('news.list', {}, { reload: true });
+            this.$state.go('news.list', {}, {reload: true});
         }, (response) => {
             console.log(response); //TODO
         });
+    }
+
+    public delete() {
+
+        this.newsService.remove({id: this.model.id}).$promise
+            .then((response) => {
+                this.$state.go('news.list', {}, {reload: true});
+            }, (response) => {
+                console.log(response); //TODO
+            });
     }
 
 }

@@ -16,10 +16,8 @@ declare module app {
     }
 
     interface INewsResource extends angular.resource.IResource<INews> {
-        query(any);
-        create();
-        get(any);
-        remove();
-        update();
+        query(any); //get items
+        get(any);   //get item
+        remove(any); //del item
     }
 }
