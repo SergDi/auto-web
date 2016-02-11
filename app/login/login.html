@@ -1,0 +1,9 @@
+<form name="loginForm"  ng-submit="vm.login()" novalidate>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" ng-model="vm.credentials.username">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" ng-model="vm.credentials.password">
+    <button type="submit">Login</button>
+</form>
