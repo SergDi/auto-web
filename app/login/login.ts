@@ -1,8 +1,21 @@
+
+routing.$inject = ['$stateProvider'];
+function routing($stateProvider) {
+
+    $stateProvider
+        .state('login', {
+            url: '/login',
+            template: require('./login.html'),
+            controller: 'loginController',
+            controllerAs: 'vm'
+        });
+}
+
 export class LoginController {
 
     public credentials:any;
 
-    static $inject = ['AuthService'];
+    static $inject = ['authService'];
 
     constructor(private AuthService) {
 
@@ -17,3 +30,9 @@ export class LoginController {
         this.AuthService.login(this.credentials);
     }
 }
+
+export default angular.module('login', ['ui.router'])
+    .config(routing)
+    .controller('loginController', LoginController)
+    .factory('authService', ["$resource", AuthService])
+    .name;
