@@ -23,7 +23,7 @@ import 'angular-mocks/ngMockE2E';
                     items = items.filter(f =>
                     {
                         if(angular.isArray(f[i]))
-                            return f[i].some(c => {return c ==  params[i]});
+                            return f[i].some(c => {return c.text ==  params[i]});
                     });
                 }
 
@@ -100,7 +100,7 @@ function getItems(): app.INews[]{
         body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
         createDate:'01.01.2016',
         location:'010101',
-        tags:['tag1','tag2','tag3'],
+        tags:[{text:'tag1'},{text:'tag2'},{text:'tag3'}],
         opportunityСomment:true,
         hot:true,
         approve:false,
@@ -111,7 +111,7 @@ function getItems(): app.INews[]{
         body:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?',
         createDate:'01.01.2016',
         location:'010101',
-        tags:['tag4','tag2','tag3'],
+        tags:[{text:'tag4'},{text:'tag2'},{text:'tag3'}],
         opportunityСomment:true,
         hot:true,
         approve:false,
@@ -122,7 +122,7 @@ function getItems(): app.INews[]{
         body:'body',
         createDate:'010101',
         location:'010101',
-        tags:['tag2','tag3','tag4'],
+        tags:[{text:'tag2'},{text:'tag3'},{text:'tag4'}],
         opportunityСomment:true,
         hot:true,
         approve:false,
