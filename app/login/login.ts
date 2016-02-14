@@ -1,4 +1,23 @@
 
+import './login.css'
+
+class AuthService {
+
+    constructor(private $http) {
+
+    }
+
+    public login(credentials) {
+
+        return this.$http.post('api/login', credentials)
+            .then(function (response) {
+
+                return response.data.user;
+            });
+
+    }
+}
+
 routing.$inject = ['$stateProvider'];
 function routing($stateProvider) {
 
@@ -34,5 +53,7 @@ export class LoginController {
 export default angular.module('login', ['ui.router'])
     .config(routing)
     .controller('loginController', LoginController)
-    .factory('authService', ["$resource", AuthService])
+    .factory('authService', ['$http',($http) => new AuthService($http)])
     .name;
+
+

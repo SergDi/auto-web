@@ -2,21 +2,23 @@
     <div class="col-md-9">
         <div class="panel panel-default" ng-repeat="item in vm.model">
             <div class="panel-body">
-                <h1 ng-bind="item.title"></h1>
+                <h3 ng-bind="item.title"></h3>
                 <h6 ng-bind="item.description"></h6>
-                <p><span class="glyphicon glyphicon-time"></span>{{item.createDate}}</p>
-                <hr>
+
+                <p><span class="glyphicon glyphicons-calendar"></span>{{item.createDate}}</p>
+
                 <p class="lead" >{{item.body| cut:true:100:' ...'}}</p>
 
                 <div>
-                    <small ng-repeat="tag in item.tags">
-                        <small ng-if="$index > 0">,</small>
-                        <a ui-sref="news.list({ tags: tag  })">{{tag}}</a>
-                    </small>
+                    <span ng-repeat="tag in item.tags">
+                        <a ui-sref="news.list({ tags: tag  })" title="{{tag}}"><span class="label label-default">{{tag}}</span></a>
+                    </span>
                 </div>
-                <hr>
-                <a class="btn btn-primary" ui-sref="news.detail({ id: item.id })">Read More <span
-                        class="glyphicon glyphicon-chevron-right"></span></a>
+               <br>
+                <a class="btn btn-primary" ui-sref="news.detail({ id: item.id })">Read More
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
             </div>
         </div>
     </div>

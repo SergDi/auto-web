@@ -1,9 +1,20 @@
-<form name="loginForm"  ng-submit="vm.login()" novalidate>
-
-    <label for="username">Username:</label>
-    <input type="text" id="username" ng-model="vm.credentials.username">
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" ng-model="vm.credentials.password">
-    <button type="submit">Login</button>
-</form>
+<div class="container">
+    <div class="card card-container" >
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" name="loginForm"  ng-submit="vm.login()" novalidate>
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="vm.credentials.username" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="vm.credentials.password" required>
+            <div id="remember" class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+        </form>
+        <a href="#" class="forgot-password">
+            Forgot the password?
+        </a>
+    </div>
+</div>
