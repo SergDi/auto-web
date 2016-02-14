@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './common/services/filters';
 
 import news from './news/news';
+import login from './login/login';
 
 routing.$inject = ['$urlRouterProvider', '$locationProvider'];
 function routing($urlRouterProvider, $locationProvider) {
@@ -42,7 +43,7 @@ class AppController {
     }
 }
 angular.module('app',
-    ['ui.router', 'ngResource', 'common.filters', news])
+    ['ui.router', 'ngResource', 'common.filters', news, login])
     .config(routing)
     .directive('app', App);
 

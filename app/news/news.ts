@@ -1,8 +1,13 @@
 import NewsService from './news.service/news.service';
 import './news.service/newsResourceMock';
 
+import 'ng-tags-input';
+import 'ng-tags-input/build/ng-tags-input.css';
+
+
+import NewsListController   from './news-list/news-list';
 import NewsDetailController from './news-detail/news-detail';
-import NewsEditController from './news-edit/news-edit';
+import NewsEditController   from './news-edit/news-edit';
 
 routing.$inject = ['$stateProvider'];
 function routing($stateProvider) {
@@ -15,8 +20,8 @@ function routing($stateProvider) {
         })
         .state('news.list', {
             url: '?tags',
-            template: require('./news.html'),
-            controller: 'newsController',
+            template: require('./news-list/news-list.html'),
+            controller: 'newsListController',
             controllerAs: 'vm',
             resolve: {
                 model: ['$stateParams', 'newsService',
@@ -51,18 +56,9 @@ function routing($stateProvider) {
         });
 }
 
-export class NewsController {
-
-    static $inject = ['model', 'newsService',];
-
-    constructor(private model:app.INews[], private newsService:app.INewsResource) {
-
-    }
-}
-
-export default angular.module('news', ['ui.router','newsResourceMock'])
+export default angular.module('news', ['ui.router','newsResourceMock', 'ngTagsInput'])
     .config(routing)
-    .controller('newsController', NewsController)
+    .controller('newsListController', NewsListController)
     .controller('newsDetailController', NewsDetailController)
     .controller('newsEditController', NewsEditController)
     .factory('newsService', ["$resource", NewsService])

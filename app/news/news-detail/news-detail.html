@@ -4,11 +4,10 @@
     <p><span class="glyphicon glyphicon-time"></span>{{vm.model.createDate}}</p>
     <p class="lead" ng-bind="vm.model.body"></p>
     <div>
-        <small ng-repeat="tag in vm.model.tags">
-        <small ng-if="$index > 0">,</small>
-            <a ui-sref="news.list({ tags: tag  })">{{tag}}</a>
-        </small>
+        <span ng-repeat="tag in vm.model.tags">
+            <a ui-sref="news.list({ tags: tag  })" title="{{tag}}"><span class="label label-default">{{tag}}</span></a>
+        </span>
     </div>
-    <hr>
+    <br>
     <a class="btn btn-primary" ui-sref="news.edit({ id: vm.model.id })">Edit</a>
 </div>

@@ -21,7 +21,12 @@ module.exports = {
 
     devServer: {
         contentBase: "./app",
-        historyApiFallback: true
+        historyApiFallback: true,
+
+        watchOptions: {
+            aggregateTimeout: 500,
+            poll: 1000
+        }
     },
 
     devtool: '#inline-source-map'
