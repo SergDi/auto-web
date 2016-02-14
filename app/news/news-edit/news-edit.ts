@@ -1,8 +1,8 @@
 export default class NewsEditController {
 
-    static $inject = ['newsService', 'model', '$state'];
+    static $inject = ['newsService', 'model', '$state','$http'];
 
-    constructor(private newsService:app.INewsResource, private model, private $state) {
+    constructor(private newsService:app.INewsResource, private model, private $state, private $http) {
 
     }
 
@@ -31,5 +31,10 @@ export default class NewsEditController {
                 console.log(response); //TODO
             });
     }
+
+    public loadTags(query) {
+
+        return this.$http.get('/api/tags?query=' + query);
+    };
 
 }
