@@ -1,10 +1,6 @@
 import NewsService from './news.service/news.service';
 import './news.service/newsResourceMock';
 
-import 'ng-tags-input';
-import 'ng-tags-input/build/ng-tags-input.css';
-
-
 import NewsListController   from './news-list/news-list';
 import NewsDetailController from './news-detail/news-detail';
 import NewsEditController   from './news-edit/news-edit';
@@ -56,7 +52,7 @@ function routing($stateProvider) {
         });
 }
 
-export default angular.module('news', ['ui.router','newsResourceMock', 'ngTagsInput'])
+export default angular.module('news', ['ui.router','newsResourceMock'])
     .config(routing)
     .controller('newsListController', NewsListController)
     .controller('newsDetailController', NewsDetailController)

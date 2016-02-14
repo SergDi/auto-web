@@ -15,9 +15,7 @@
         <textarea type="text" class="form-control" id="body" ng-model="vm.model.body"></textarea>
     </div>
 
-    <tags-input ng-model="vm.model.tags">
-        <auto-complete source="vm.loadTags($query)"></auto-complete>
-    </tags-input>
+    <tags model="vm.model.tags"></tags>
 
     <a class="btn btn-primary" ng-click="vm.save()" >Save</a>
     <a class="btn btn-primary" ng-click="vm.delete()" ng-if="vm.model.id">Delete</a>

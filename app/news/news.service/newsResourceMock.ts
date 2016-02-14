@@ -77,28 +77,6 @@ import 'angular-mocks/ngMockE2E';
             return [200, {}, {}];
         });
 
-
-        $httpBackend.whenGET(replaceUrl('/api/tags')).respond(function(method, url, data, headers, params) {
-
-            var result = [];
-
-            var tags = ['tag1','tag2','tag3','tag4','sample'];
-
-            for(var i in params){
-
-                var query = params[i];
-
-                for (var i in tags) {
-                    if (tags[i].match(query)) {
-                        result.push(tags[i]);
-                    }
-                }
-            }
-
-            return [200, result, {}];
-        });
-
-
         // Pass through any requests for application files
         $httpBackend.whenGET(/app/).passThrough();
 
