@@ -23,9 +23,7 @@ import 'angular-mocks/ngMockE2E';
                     items = items.filter(f =>
                     {
                         if(angular.isArray(f[i]))
-                            return f[i].some(c => {return c ==  params[i]})
-                        else
-                            f[i] == params[i];
+                            return f[i].some(c => {return c ==  params[i]});
                     });
                 }
 
