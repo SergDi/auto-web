@@ -4,5 +4,7 @@ export default function NewsService( $resource:angular.resource.IResourceService
                 query:  { method: "GET", isArray: true },
                 get:    { method: "GET" },
                 remove: { method: "DELETE" },
+                save:   {method:'POST'},
+                update: { method:'PUT' }
         });
     }
