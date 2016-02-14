@@ -84,20 +84,19 @@ import 'angular-mocks/ngMockE2E';
 
             var result = [];
 
-            var arr = ['tag1','tag2','tag3','tag4'];
+            var tags = ['tag1','tag2','tag3','tag4','sample'];
 
             for(var i in params){
 
                 var query = params[i];
 
-                for (var i in arr) {
-                    if (arr[i].match(query)) {
-                        result.push(arr[i]);
+                for (var i in tags) {
+                    if (tags[i].match(query)) {
+                        result.push(tags[i]);
                     }
                 }
             }
 
-            console.log(params);
             return [200, result, {}];
         });
 
