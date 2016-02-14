@@ -15,12 +15,7 @@ import 'angular-mocks/ngMockE2E';
 
         var newsUrl = "/api/news";
 
-        var pattern = new RegExp(
-            "^" +
-            newsUrl.replace(/[-[\]{}()*+?.\\^$|]/g, "\\$&") + /* escape special chars */
-            "(?:\\?.*)?$");
-
-        $httpBackend.whenGET(pattern).respond(function(method, url, data, headers, params) {
+        $httpBackend.whenGET(replaceUrl(newsUrl)).respond(function(method, url, data, headers, params) {
 
             if(params)
                 for(var i in params){
@@ -84,9 +79,42 @@ import 'angular-mocks/ngMockE2E';
             return [200, {}, {}];
         });
 
+
+        $httpBackend.whenGET(replaceUrl('/api/tags')).respond(function(method, url, data, headers, params) {
+
+            var result = [];
+
+            var arr = ['tag1','tag2','tag3','tag4'];
+
+            for(var i in params){
+
+                var query = params[i];
+
+                for (var i in arr) {
+                    if (arr[i].match(query)) {
+                        result.push(arr[i]);
+                    }
+                }
+            }
+
+            console.log(params);
+            return [200, result, {}];
+        });
+
+
         // Pass through any requests for application files
         $httpBackend.whenGET(/app/).passThrough();
+
     }
+
+function  replaceUrl(url){
+
+    return new RegExp(
+        "^" +
+        url.replace(/[-[\]{}()*+?.\\^$|]/g, "\\$&") + /* escape special chars */
+        "(?:\\?.*)?$");
+}
+
 
 function getItems(): app.INews[]{
 

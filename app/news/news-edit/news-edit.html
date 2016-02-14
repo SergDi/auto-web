@@ -16,7 +16,7 @@
     </div>
 
     <tags-input ng-model="vm.model.tags">
-        <auto-complete source="loadTags($query)"></auto-complete>
+        <auto-complete source="vm.loadTags($query)"></auto-complete>
     </tags-input>
 
     <a class="btn btn-primary" ng-click="vm.save()" >Save</a>
