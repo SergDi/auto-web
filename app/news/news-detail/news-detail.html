@@ -1,13 +1,16 @@
 <div class="row">
-    <h1 ng-bind="vm.model.title"></h1>
+    <small>{{vm.model.createDate}}</small>
+
+    <h4 ng-bind="vm.model.title"></h4>
     <h6 ng-bind="vm.model.description"></h6>
-    <p><span class="glyphicon glyphicon-time"></span>{{vm.model.createDate}}</p>
+
     <p class="lead" ng-bind="vm.model.body"></p>
     <div>
         <span ng-repeat="tag in vm.model.tags">
-            <a ui-sref="news.list({ tags: tag  })" title="{{tag}}"><span class="label label-default">{{tag}}</span></a>
+            <a ui-sref="news.list({ tags: tag.text  })" title="{{tag.text}}"><span class="label label-default">{{tag.text}}</span></a>
         </span>
     </div>
     <br>
-    <a class="btn btn-primary" ui-sref="news.edit({ id: vm.model.id })">Edit</a>
+
+    <button type="button" class="btn btn-default btn-sm" ui-sref="news.edit({ id: vm.model.id })">Edit</button>
 </div>

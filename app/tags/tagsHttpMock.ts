@@ -13,14 +13,14 @@ function mockRun($httpBackend: ng.IHttpBackendService) : void {
 
         var result = [];
 
-        var tags = ['tag1','tag2','tag3','tag4','sample'];
+        var tags = [{text:'tag1'},{text:'tag2'},{text:'tag3'},{text:'tag4'},{text:'sample'}];
 
         for(var i in params){
 
             var query = params[i];
 
             for (var i in tags) {
-                if (tags[i].match(query)) {
+                if (tags[i].text.match(query)) {
                     result.push(tags[i]);
                 }
             }

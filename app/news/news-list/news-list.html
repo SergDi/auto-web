@@ -2,22 +2,25 @@
     <div class="col-md-9">
         <div class="panel panel-default" ng-repeat="item in vm.model">
             <div class="panel-body">
-                <h3 ng-bind="item.title"></h3>
-                <h6 ng-bind="item.description"></h6>
+                <small>{{item.createDate}}</small>
 
-                <p><span class="glyphicon glyphicons-calendar"></span>{{item.createDate}}</p>
-
-                <p class="lead" >{{item.body| cut:true:100:' ...'}}</p>
+                <h4 ng-bind="item.title"></h4>
 
                 <div>
                     <span ng-repeat="tag in item.tags">
-                        <a ui-sref="news.list({ tags: tag  })" title="{{tag}}"><span class="label label-default">{{tag}}</span></a>
+                        <a ui-sref="news.list({ tags: tag.text  })" title="{{tag.text}}"><span class="label label-default">{{tag.text}}</span></a>
                     </span>
                 </div>
+
+                <h6 ng-bind="item.description"></h6>
+
+                <p class="lead" >{{item.body| cut:true:100:' ...'}}</p>
+
                <br>
-                <a class="btn btn-primary" ui-sref="news.detail({ id: item.id })">Read More
+
+                <button type="button" class="btn btn-default btn-sm" ui-sref="news.detail({ id: item.id })">Read More
                     <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+                </button>
 
             </div>
         </div>
