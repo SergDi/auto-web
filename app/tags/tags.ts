@@ -43,7 +43,42 @@ var TagsComponent = {
         </tags-input>`
 };
 
+
+export class TagCloudController{
+    
+    tags:any[];
+    
+    static $inject = ['$http'];
+    
+    constructor(private  $http){
+
+    }
+    
+    public init(){
+       
+        this.$http.get('/api/tags')
+        .then((respond)=>{
+            
+            this.tags = respond.data;
+        }); 
+    }
+}
+
+var TagCloudComponent = {
+
+    controller:TagCloudController,
+    template:`
+    <div ng-init="$ctrl.init()">
+         <ul> 
+            <li ng-repeat="t in $ctrl.tags">
+                <span ng-bind="t.text"></span> 
+            </li> 
+         </ul> 
+     </div>`
+};
+
 export default angular.module('tags', ['ui.router','tagsHttpMock', 'ngTagsInput'])
     .config(routing)
     .component('tags', TagsComponent)
+    .component('tagCloud', TagCloudComponent)
     .name;
