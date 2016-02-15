@@ -55,10 +55,10 @@ export class TagCloudController{
     }
     
     public init(){
-       
+       console.log('init');
         this.$http.get('/api/tags')
         .then((respond)=>{
-            
+            console.log(respond);
             this.tags = respond.data;
         }); 
     }
@@ -69,11 +69,11 @@ var TagCloudComponent = {
     controller:TagCloudController,
     template:`
     <div ng-init="$ctrl.init()">
-         <ul> 
-            <li ng-repeat="t in $ctrl.tags">
-                <span ng-bind="t.text"></span> 
-            </li> 
-         </ul> 
+        <span ng-repeat="tag in $ctrl.tags" >
+             <a ui-sref="news.list({ tags: tag.text  })" title="{{tag.text}}">
+                <span class="label label-default ng-binding">{{tag.text}}</span>
+             </a>
+        </span>
      </div>`
 };
 
