@@ -55,10 +55,10 @@ export class TagCloudController{
     }
     
     public init(){
-       console.log('init');
+
         this.$http.get('/api/tags')
         .then((respond)=>{
-            console.log(respond);
+
             this.tags = respond.data;
         }); 
     }

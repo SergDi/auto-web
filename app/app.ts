@@ -23,6 +23,7 @@ function routing($urlRouterProvider, $locationProvider) {
 
 var AppComponent = {
 
+    controller:AppController,
     template:`
      <div class="container">
             <div class="page-header">
@@ -32,6 +33,12 @@ var AppComponent = {
         </div>`
 };
 
+class AppController {
+
+    constructor() {
+        console.log('AppController');
+    }
+}
 
 angular.module('app',
     ['ui.router', 'ngResource', 'common.filters', news, login, tags])
