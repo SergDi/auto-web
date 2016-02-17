@@ -21,31 +21,21 @@ function routing($urlRouterProvider, $locationProvider) {
 
 }
 
-function App() {
-    return {
-        restrict: 'E',
-        template: `
-        <div class="container">
+var AppComponent = {
+
+    template:`
+     <div class="container">
             <div class="page-header">
                 <h3 class="text-muted"><a href="/">Logo auto web</a></h3>
             </div>
             <ui-view/>
-        </div>
-        `,
-        controller: AppController,
-        controllerAs: 'App'
-    }
-}
+        </div>`
+};
 
-class AppController {
 
-    constructor() {
-
-    }
-}
 angular.module('app',
     ['ui.router', 'ngResource', 'common.filters', news, login, tags])
     .config(routing)
-    .directive('app', App);
+    .component('app', AppComponent);
 
 angular.bootstrap(document, ['app']);
