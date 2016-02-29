@@ -31,12 +31,21 @@ declare module app {
         avatar:string;
         location:string;
         licensePlates:ILicensePlate[];
+        privacySettings:IPrivacySettings;
     }
     
      interface ILicensePlate{
          number:number;
          approved:boolean;
          image:string;
+     }
+     
+     interface IPrivacySettings{
+         showMyNews:boolean;
+         showMyPhone:boolean;
+         showMyEmail:boolean;
+         showMeOnMap:boolean;
+         
      }
     
     
