@@ -8,6 +8,8 @@ import './common/services/filters';
 import news from './news/news';
 import login from './login/login';
 import tags from './tags/tags'
+import profile from './profile/profile'
+
 
 routing.$inject = ['$urlRouterProvider', '$locationProvider'];
 function routing($urlRouterProvider, $locationProvider) {
@@ -44,7 +46,7 @@ class AppController {
     }
 }
 angular.module('app',
-    ['ui.router', 'ngResource', 'common.filters', news, login, tags])
+    ['ui.router', 'ngResource', 'common.filters', news, login, profile, tags])
     .config(routing)
     .directive('app', App);
 

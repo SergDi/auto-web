@@ -6,19 +6,27 @@ function routing($stateProvider) {
             url: '/profile',
             template: require('./profile.html'),
             controller: 'profileController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            resolve: {
+                model: ['$stateParams',
+                    function () {
+                        return 'text profile';
+                    }]
+            }
         });
 }
 
 export class ProfileController {
 
-    constructor() {
-
+    static $inject =['model'];
+    
+    constructor(private model) {
+        
     }
 
 }
 
-export default angular.module('login', ['ui.router'])
+export default angular.module('profile', ['ui.router'])
     .config(routing)
     .controller('profileController', ProfileController)
     .name;
