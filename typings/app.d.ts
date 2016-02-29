@@ -14,7 +14,14 @@ declare module app {
         hot:boolean;
         approve:boolean;
     }
+
+    interface INewsResource extends angular.resource.IResource<INews> {
+        query(any); //get items
+        get(any);   //get item
+        remove(any); //del item
+    }
     
+        
     interface IProfile{
         nickName:string;
         firstName:string;
@@ -33,10 +40,4 @@ declare module app {
      }
     
     
-
-    interface INewsResource extends angular.resource.IResource<INews> {
-        query(any); //get items
-        get(any);   //get item
-        remove(any); //del item
-    }
 }
