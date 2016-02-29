@@ -44,8 +44,7 @@ declare module app {
          showMyNews:boolean;
          showMyPhone:boolean;
          showMyEmail:boolean;
-         showMeOnMap:boolean;
-         
+         showMeOnMap:boolean;       
      }
     
     
