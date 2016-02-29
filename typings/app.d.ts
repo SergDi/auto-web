@@ -14,6 +14,25 @@ declare module app {
         hot:boolean;
         approve:boolean;
     }
+    
+    interface IProfile{
+        nickName:string;
+        firstName:string;
+        lasttName:string;
+        email:string;
+        phone:string;
+        avatar:string;
+        location:string;
+        licensePlates:ILicensePlate[];
+    }
+    
+     interface ILicensePlate{
+         number:number;
+         approved:boolean;
+         image:string;
+     }
+    
+    
 
     interface INewsResource extends angular.resource.IResource<INews> {
         query(any); //get items
