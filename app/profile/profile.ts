@@ -8,9 +8,9 @@ function routing($stateProvider) {
             controller: 'profileController',
             controllerAs: 'vm',
             resolve: {
-                model: ['$stateParams',
-                    function () {
-                        return 'text profile';
+                model: ['$stateParams', 'profileService',
+                    function ($stateParams, profileService:app.IProfileResource) {
+                        return profileService.get({id: $stateParams.id});
                     }]
             }
         });
@@ -22,6 +22,16 @@ export class ProfileController {
     
     constructor(private model) {
         
+    }
+    
+    public save(){
+        
+      this.model.$save()
+      .then((response) => {
+              console.log(response); //TODO
+        }, (response) => {
+            console.log(response); //TODO
+        });     
     }
 
 }

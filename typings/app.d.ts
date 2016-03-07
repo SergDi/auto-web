@@ -46,6 +46,11 @@ declare module app {
          showMyEmail:boolean;
          showMeOnMap:boolean;       
      }
+     
+     
+    interface IProfileResource extends angular.resource.IResource<IProfile> {
+        get(any);
+    }
     
     
 }
